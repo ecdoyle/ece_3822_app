@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.content.Intent;
+import android.content.Context;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +15,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final Context context = this;
+        Button find_button = (Button) findViewById(R.id.FindButton);
+        find_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent find_screen = new Intent(context, Find_page.class);
+                startActivity(find_screen);
+            }
+        });
+
+        Button add_button = (Button) findViewById(R.id.AddButton);
+        add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add_screen = new Intent(context, Add_page.class);
+                startActivity(add_screen);
+            }
+        });
+
+
     }
 
     @Override
@@ -34,4 +58,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
